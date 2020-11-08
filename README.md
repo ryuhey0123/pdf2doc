@@ -2,6 +2,13 @@
 
 Add page number to some PDF files and merge it → PERFECT DOCUMENT! ⭐️
 
+## Install
+
+```sh
+brew tap ryuhey0123/pdf2doc
+brew install pdf2doc
+```
+
 ## Usage
 
 ```sh
