@@ -2,6 +2,8 @@
 
 Add page number to some PDF files and merge it → PERFECT DOCUMENT! ⭐️
 
+![demo](./asset/demo.gif)
+
 ## Install
 
 ```sh
