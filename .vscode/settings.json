@@ -3,10 +3,12 @@
         "disp",
         "etadisp",
         "gmtime",
+        "halign",
         "isatty",
         "ittimes",
         "nargs",
         "pdfs",
-        "ttfonts"
+        "ttfonts",
+        "valign"
     ]
 }
