@@ -7,6 +7,7 @@ verify_ssl = true
 flake8 = "*"
 autopep8 = "*"
 pdf2doc = {editable = true, path = "."}
+pyinstaller = "*"
 
 [packages]
 pypdf2 = "*"
