@@ -1,5 +1,7 @@
 import os
 
+import crayons
+from yaspin import yaspin, Spinner
 from click import Path, Choice, IntRange
 from click import command, argument, option, echo
 from send2trash import send2trash
@@ -56,19 +58,24 @@ def cli(files, output, halign, valign, margin, font, size, merge, blank):
         add_blank=blank
     )
 
-    echo('Temporary saving file...')
-    for writer, path in zip(output_writers, output_paths):
-        with open(path, 'wb') as f:
-            writer.write(f)
+    sp = Spinner([' ⠋', ' ⠙', ' ⠹', ' ⠸', ' ⠼', ' ⠴', ' ⠦', ' ⠧', ' ⠇', ' ⠏'], 100)
 
-    echo('Merging PDFs...')
+    with yaspin(sp, text="Saving") as spinner:
+        for writer, path in zip(output_writers, output_paths):
+            with open(path, 'wb') as f:
+                writer.write(f)
+        spinner.text = "Saving   [Success]"
+        spinner.ok(" ✅")
+
     if merge:
-        echo('  Merge pages...')
-        merger = concat_pdfs_merger(output_paths)
-        merger.write(output)
-        merger.close()
-        for path in output_paths:
-            send2trash(path)
+        with yaspin(sp, text="Marging") as spinner:
+            merger = concat_pdfs_merger(output_paths)
+            merger.write(output)
+            merger.close()
+            for path in output_paths:
+                send2trash(path)
+            spinner.text = "Marging  [Success]"
+            spinner.ok(" ✅")
 
     echo('')
-    echo('      ⭐️⭐️⭐️ All Done! ⭐⭐️⭐️️')
+    echo(crayons.yellow('      ⭐️⭐️⭐️ All Done! ⭐⭐️⭐️️', bold=True))

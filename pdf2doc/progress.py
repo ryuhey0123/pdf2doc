@@ -27,7 +27,7 @@ BAR_EMPTY_CHAR = str(crayons.black("-"))
 BAR_FILLED_CHAR = str(crayons.green("▉", bold=True))
 BAR_EMPTY_CHAR = str(crayons.black("▉"))
 
-BAR_TEMPLATE = u"  %s%s%s %i/%i — {0}\r".format(crayons.black("%s"))
+BAR_TEMPLATE = u" 📄 %s%s%s %i/%i — {0}\r".format(crayons.green("%s"))
 
 MILL_CHARS = ["|", "/", "-", "\\"]
 # How long to wait before recalculating the ETA

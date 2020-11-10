@@ -61,7 +61,7 @@ def paged_pdf_writer(file: str, h_align: str, v_align: str, margin: Margin, font
 
         return new_pdf
 
-    bar = progress.bar(range(pdf.getNumPages()), label="{} ".format(file), width=32)
+    bar = progress.bar(range(pdf.getNumPages()), label="{} ".format(os.path.basename(file)), width=32)
 
     for i in bar:
         page = pdf.getPage(i)

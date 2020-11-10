@@ -7,6 +7,7 @@ verify_ssl = true
 flake8 = "*"
 autopep8 = "*"
 homebrew-pypi-poet = "*"
+pdf2doc = {editable = true, path = "."}
 
 [packages]
 pypdf2 = "*"
@@ -14,6 +15,7 @@ click = "*"
 crayons = "*"
 send2trash = "*"
 fpdf = "*"
+yaspin = "*"
 
 [requires]
 python_version = "3.9"

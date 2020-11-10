@@ -20,6 +20,7 @@ required = [
     "setuptools==49.2.1",
     "wheel==0.35.1",
     "fpdf==1.7.2",
+    "yaspin==1.2.0"
 ]
 
 setup(
