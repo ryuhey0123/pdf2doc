@@ -1,14 +1,14 @@
-from io import BytesIO
+import os
+import tempfile
 from typing import List
 
 from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen.canvas import Canvas
+from fpdf import FPDF
 
 from . import progress
-# import progress
 
 MM_2_PT = 595 / 210
+A4 = (210 * MM_2_PT, 297 * MM_2_PT)
 
 
 class Margin:
@@ -39,7 +39,7 @@ class Position:
         area_x = float(pageBox.getWidth()) - margin.left - margin.right
         area_y = float(pageBox.getHeight()) - margin.bottom - margin.top
         self.x = area_x * {'right': 1.0, 'center': 0.5, 'left': 0.0}.get(h_align) + margin.left
-        self.y = area_y * {'top': 1.0, 'center': 0.5, 'bottom': 0.0}.get(v_align) + margin.bottom
+        self.y = area_y * {'top': 0.0, 'center': 0.5, 'bottom': 1.0}.get(v_align) + margin.bottom
         self.size = pageBox
 
 
@@ -48,13 +48,17 @@ def paged_pdf_writer(file: str, h_align: str, v_align: str, margin: Margin, font
     output = PdfFileWriter()
 
     def paged_plain_pdf(text: str, position: Position) -> PdfFileReader:
-        packet = BytesIO()
-        canvas = Canvas(packet, pagesize=position.size)
-        canvas.setFont(font, font_size)
-        canvas.drawString(position.x, position.y, text)
-        canvas.save()
-        packet.seek(0)
-        new_pdf = PdfFileReader(packet)
+        _, temp = tempfile.mkstemp()
+
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font(font, size=font_size)
+        pdf.text(position.x / MM_2_PT, position.y / MM_2_PT, txt=text)
+        pdf.output(temp, dest='F')
+
+        new_pdf = PdfFileReader(temp)
+        os.remove(temp)
+
         return new_pdf
 
     bar = progress.bar(range(pdf.getNumPages()), label="{} ".format(file), width=32)

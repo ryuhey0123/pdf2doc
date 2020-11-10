@@ -9,10 +9,10 @@ autopep8 = "*"
 
 [packages]
 pypdf2 = "*"
-reportlab = "*"
 click = "*"
 crayons = "*"
 send2trash = "*"
+fpdf = "*"
 
 [requires]
 python_version = "3.9"

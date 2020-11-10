@@ -56,10 +56,12 @@ def cli(files, output, halign, valign, margin, font, size, merge, blank):
         add_blank=blank
     )
 
+    echo('Temporary saving file...')
     for writer, path in zip(output_writers, output_paths):
         with open(path, 'wb') as f:
             writer.write(f)
 
+    echo('Merging PDFs...')
     if merge:
         echo('  Merge pages...')
         merger = concat_pdfs_merger(output_paths)

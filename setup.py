@@ -14,13 +14,12 @@ required = [
     "click==7.1.2",
     "colorama==0.4.4",
     "crayons==0.4.0",
-    "Pillow==8.0.1",
     "pip==20.2.1",
     "PyPDF2==1.26.0",
-    "reportlab==3.5.55",
     "Send2Trash==1.5.0",
     "setuptools==49.2.1",
     "wheel==0.35.1",
+    "fpdf==1.7.2",
 ]
 
 setup(
