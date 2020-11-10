@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "91a9c334d5b163b5aefb4894c447f0e59b5486a6b207b2e861149430565de450"
+            "sha256": "8b8cbe28db959255103fd85fd86aa1c5827dec6b1ce9ad45468aa5b63c63aa07"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -137,13 +137,6 @@
         }
     },
     "develop": {
-        "altgraph": {
-            "hashes": [
-                "sha256:1f05a47122542f97028caf78775a095fbe6a2699b5089de8477eb583167d69aa",
-                "sha256:c623e5f3408ca61d4016f23a681b9adb100802ca3e3da5e718915a9e4052cebe"
-            ],
-            "version": "==0.17"
-        },
         "autopep8": {
             "hashes": [
                 "sha256:d21d3901cb0da6ebd1e83fc9b0dfbde8b46afc2ede4fe32fbda0c7c6118ca094"
@@ -174,14 +167,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==2.11.2"
-        },
-        "macholib": {
-            "hashes": [
-                "sha256:0c436bc847e7b1d9bda0560351bf76d7caf930fb585a828d13608839ef42c432",
-                "sha256:c500f02867515e6c60a27875b408920d18332ddf96b4035ef03beddd782d4281"
-            ],
-            "markers": "sys_platform == 'darwin'",
-            "version": "==1.14"
         },
         "markupsafe": {
             "hashes": [
@@ -248,20 +233,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.2.0"
-        },
-        "pyinstaller": {
-            "hashes": [
-                "sha256:970beb07115761d5e4ec317c1351b712fd90ae7f23994db914c633281f99bab0"
-            ],
-            "index": "pypi",
-            "version": "==4.0"
-        },
-        "pyinstaller-hooks-contrib": {
-            "hashes": [
-                "sha256:bf4543a16c9c6e9dd2d70ea3fee78b81d3357a68f706df471d990213892259d9",
-                "sha256:dd752c88c1c7bb6920f7de248c12d4411c0463877e5e64afdc4f7e93dff9fc94"
-            ],
-            "version": "==2020.10"
         },
         "toml": {
             "hashes": [

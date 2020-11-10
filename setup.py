@@ -12,7 +12,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="pdf2doc",
-    version="1.0",
+    version="1.1",
     description="Make paged document by PDFs.",
     long_description=long_description,
     long_description_content_type='text/markdown',
