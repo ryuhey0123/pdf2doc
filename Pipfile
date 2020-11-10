@@ -8,6 +8,7 @@ flake8 = "*"
 autopep8 = "*"
 pdf2doc = {editable = true, path = "."}
 pyinstaller = "*"
+homebrew-pypi-poet = "*"
 
 [packages]
 pypdf2 = "*"
