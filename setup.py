@@ -11,6 +11,8 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
 
 
 required = [
+    "pip>=18.0",
+    "setuptools>=36.2.1",
     "pypdf2",
     "reportlab",
     "click",
