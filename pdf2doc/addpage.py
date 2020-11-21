@@ -77,10 +77,10 @@ def paged_pdf_writer(file: str, h_align: str, v_align: str, margin: Margin, font
     return output
 
 
-def paged_pdfs_writer(files: List[str], h_align: str, v_align: str, margin: Margin, font: str, font_size: int, format: str, add_blank) -> List[PdfFileWriter]:
+def paged_pdfs_writer(files: List[str], h_align: str, v_align: str, margin: Margin, font: str, font_size: int, format: str, add_blank, start_num: int) -> List[PdfFileWriter]:
     outputs = []
     for i, file in enumerate(files):
-        reformat = format.format(i, "{}")
+        reformat = format.format(i + start_num, "{}")
         output = paged_pdf_writer(file, h_align, v_align, margin, font, font_size, reformat, add_blank)
         outputs.append(output)
     return outputs

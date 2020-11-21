@@ -16,6 +16,7 @@ PDF2DOC_FONT = "Helvetica"
 PDF2DOC_FONTSIZE = 9
 PDF2DOC_FORMAT = "{0} - {1}"
 PDF2DOC_SUFFIX = '_paged'
+PDF2DOC_START_NUM = 0
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 
@@ -35,9 +36,10 @@ def validate_file_args(ctx, param, value):
 @option('--margin', '-m', default=10, type=IntRange(0, 100), help='Set mergin.')
 @option('--font', '-f', default=PDF2DOC_FONT, help='Set font name.')
 @option('--size', '-s', default=PDF2DOC_FONTSIZE, help='Set font size.')
+@option('--start', '-n', default=PDF2DOC_START_NUM, help='Set start number.')
 @option('--merge', is_flag=True, help='Merge document.')
 @option('--blank', is_flag=True, help='Add blank page for double print.')
-def cli(files, output, halign, valign, margin, font, size, merge, blank):
+def cli(files, output, halign, valign, margin, font, size, start, merge, blank):
     """ ⭐️ Add pages to PDFs and merge(optional) -> PERFECT DOCUMENT! 📑"""
 
     file_paths = [os.path.join(cwd, file) for file in files]
@@ -55,7 +57,8 @@ def cli(files, output, halign, valign, margin, font, size, merge, blank):
         font=font,
         font_size=size,
         format=PDF2DOC_FORMAT,
-        add_blank=blank
+        add_blank=blank,
+        start_num=start
     )
 
     sp = Spinner([' ⠋', ' ⠙', ' ⠹', ' ⠸', ' ⠼', ' ⠴', ' ⠦', ' ⠧', ' ⠇', ' ⠏'], 100)
