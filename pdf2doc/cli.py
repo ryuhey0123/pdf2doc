@@ -1,7 +1,7 @@
 import os
 
 import crayons
-from yaspin import yaspin, Spinner
+from yaspin import yaspin
 from click import Path, Choice, IntRange
 from click import command, argument, option, echo
 from send2trash import send2trash
@@ -61,9 +61,9 @@ def cli(files, output, halign, valign, margin, font, size, start, merge, blank):
         start_num=start
     )
 
-    sp = Spinner([' ⠋', ' ⠙', ' ⠹', ' ⠸', ' ⠼', ' ⠴', ' ⠦', ' ⠧', ' ⠇', ' ⠏'], 100)
+    # sp = Spinner([' ⠋', ' ⠙', ' ⠹', ' ⠸', ' ⠼', ' ⠴', ' ⠦', ' ⠧', ' ⠇', ' ⠏'], 100)
 
-    with yaspin(sp, text="Saving") as spinner:
+    with yaspin(text="Saving") as spinner:
         for writer, path in zip(output_writers, output_paths):
             with open(path, 'wb') as f:
                 writer.write(f)
@@ -71,7 +71,7 @@ def cli(files, output, halign, valign, margin, font, size, start, merge, blank):
         spinner.ok(" ✅")
 
     if merge:
-        with yaspin(sp, text="Marging") as spinner:
+        with yaspin(text="Marging") as spinner:
             merger = concat_pdfs_merger(output_paths)
             merger.write(output)
             merger.close()
