@@ -25,7 +25,7 @@ required = [
 
 setup(
     name="pdf2doc",
-    version="1.2.0",
+    version="1.2.1",
     description="Make paged document by PDFs.",
     long_description=long_description,
     long_description_content_type='text/markdown',
